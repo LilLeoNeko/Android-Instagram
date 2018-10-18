@@ -139,16 +139,21 @@ public class ViewProfileFragment extends Fragment {
                 Log.d(TAG, "onClick: now following: " + mUser.getUsername());
 
                 FirebaseDatabase.getInstance().getReference()
+                        //User A has a new following user B
+                        //Inside Firebase, User ID as the root node
+                        //Follwing users are child nodes
+                        //which is the same structure as the user_photo
                         .child(getString(R.string.dbname_following))
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                        .child(mUser.getUser_id())
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())//this is you
+                        .child(mUser.getUser_id())//following the one u are looking at
                         .child(getString(R.string.field_user_id))
                         .setValue(mUser.getUser_id());
 
                 FirebaseDatabase.getInstance().getReference()
+                        //User B has a new follower user A
                         .child(getString(R.string.dbname_followers))
-                        .child(mUser.getUser_id())
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child(mUser.getUser_id())//the one you are looking at
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())//has a new follower: you
                         .child(getString(R.string.field_user_id))
                         .setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 setFollowing();
