@@ -23,7 +23,7 @@ import tabian.com.instagramclone2.R;
 
 public class UniversalImageLoader {
 
-    private static final int defaultImage = R.drawable.ic_android;
+    private static final int defaultImage = R.drawable.ic_camera;
     private static final int testtImage1 = R.drawable.android_construction;
     private static final int testtImage2 = R.drawable.ic_add_to_story;
     private static final int testtImage3 = R.drawable.ic_arrow;
