@@ -44,7 +44,7 @@ import tabian.com.instagramclone2.models.Like;
 import tabian.com.instagramclone2.models.Photo;
 import tabian.com.instagramclone2.models.User;
 import tabian.com.instagramclone2.models.UserAccountSettings;
-import tabian.com.instagramclone2.models.LikedPhotos;
+import tabian.com.instagramclone2.models.UserLikePhotos;
 
 /**
  * Created by User on 8/12/2017.
@@ -328,6 +328,8 @@ public class ViewPostFragment extends Fragment {
                         String keyID = singleSnapshot.getKey();
 
                         //case1: Then user already liked the photo
+                        //Which means the user cancels previous like
+
                         if(mLikedByCurrentUser &&
                                 singleSnapshot.getValue(Like.class).getUser_id()
                                 .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
@@ -344,11 +346,18 @@ public class ViewPostFragment extends Fragment {
                                     .child(getString(R.string.field_likes))
                                     .child(keyID)
                                     .removeValue();
-
+                            myRef.child(getString(R.string.dbname_user_like_photos))
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child(getString(R.string.field_likes))
+                                    .child(keyID)
+                                    .removeValue();
                             mHeart.toggleLike();
                             getLikesString();
                         }
+
                         //case2: The user has not liked the photo
+                        //Which means the user give this pic a like
+
                         else if(!mLikedByCurrentUser){
                             //add new like
                             addNewLike();
@@ -379,9 +388,12 @@ public class ViewPostFragment extends Fragment {
         like.setUser_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
         like.setLike_time(getTimestamp());
 
-        LikedPhotos likedPhotos= new LikedPhotos();
-
-
+        UserLikePhotos userLikePhotos = new UserLikePhotos();
+        userLikePhotos.setUser_who_like(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        userLikePhotos.setUser_own_pic(mPhoto.getUser_id());
+        userLikePhotos.setImg_id(mPhoto.getPhoto_id());
+        userLikePhotos.setImg_URL(mPhoto.getImage_path());
+        userLikePhotos.setLike_time(getTimestamp());
 
         myRef.child(getString(R.string.dbname_photos))
                 .child(mPhoto.getPhoto_id())
@@ -399,10 +411,10 @@ public class ViewPostFragment extends Fragment {
          * Add current User Liked Photo to firebase
          **/
 
-        myRef.child(getString(R.string.dbname_user_likes))
+        myRef.child(getString(R.string.dbname_user_like_photos))
                 .child(like.getUser_id())
                 .child(newLikeID)
-                .setValue(likedPhotos);
+                .setValue(userLikePhotos);
         mHeart.toggleLike();
         getLikesString();
     }

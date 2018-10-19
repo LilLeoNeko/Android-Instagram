@@ -8,10 +8,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import tabian.com.instagramclone2.R;
 import tabian.com.instagramclone2.Utils.ViewCommentsFragment;
@@ -79,20 +81,23 @@ public class ProfileActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: started.");
-
         init();
-
-
     }
 
     private void init(){
         Log.d(TAG, "init: inflating " + getString(R.string.profile_fragment));
 
         Intent intent = getIntent();
-        if(intent.hasExtra(getString(R.string.calling_activity))){
+        Boolean callbyOther = intent.hasExtra(getString(R.string.calling_activity));
+        if(intent.hasExtra(getString(R.string.calling_activity)))
+        {
             Log.d(TAG, "init: searching for user object attached as intent extra");
+            // If the user search for another user
+            //Display Corresponding user to current user
             if(intent.hasExtra(getString(R.string.intent_user))){
                 User user = intent.getParcelableExtra(getString(R.string.intent_user));
+                FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+                String userID = curUser.getUid();
                 if(!user.getUser_id().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
                     Log.d(TAG, "init: inflating view profile");
                     ViewProfileFragment fragment = new ViewProfileFragment();
@@ -100,24 +105,27 @@ public class ProfileActivity extends AppCompatActivity implements
                     args.putParcelable(getString(R.string.intent_user),
                             intent.getParcelableExtra(getString(R.string.intent_user)));
                     fragment.setArguments(args);
+                    // Clear previous profile fragment
 
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.container, fragment);
-                    transaction.addToBackStack(getString(R.string.view_profile_fragment));
+                    transaction.addToBackStack(getString(R.string.profile_fragment));
                     transaction.commit();
-                }else{
+                }
+                else{
                     Log.d(TAG, "init: inflating Profile");
                     ProfileFragment fragment = new ProfileFragment();
                     FragmentTransaction transaction = ProfileActivity.this.getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.container, fragment);
-                    transaction.addToBackStack(getString(R.string.profile_fragment));
+                    transaction.addToBackStack(getString(R.string.view_profile_fragment));
                     transaction.commit();
                 }
             }else{
                 Toast.makeText(mContext, "something went wrong", Toast.LENGTH_SHORT).show();
             }
 
-        }else{
+        }
+        else {
             Log.d(TAG, "init: inflating Profile");
             ProfileFragment fragment = new ProfileFragment();
             FragmentTransaction transaction = ProfileActivity.this.getSupportFragmentManager().beginTransaction();
