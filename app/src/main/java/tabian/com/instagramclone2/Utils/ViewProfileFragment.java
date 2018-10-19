@@ -31,16 +31,21 @@ import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import tabian.com.instagramclone2.Profile.AccountSettingsActivity;
 import tabian.com.instagramclone2.Profile.ProfileActivity;
 import tabian.com.instagramclone2.R;
 import tabian.com.instagramclone2.models.Comment;
+import tabian.com.instagramclone2.models.Following;
 import tabian.com.instagramclone2.models.Like;
 import tabian.com.instagramclone2.models.Photo;
 import tabian.com.instagramclone2.models.User;
@@ -132,22 +137,16 @@ public class ViewProfileFragment extends Fragment {
         getPostsCount();
 
 
+        /**
+         * Following : Need to add Following time.
+         * */
 
         mFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: now following: " + mUser.getUsername());
 
-                FirebaseDatabase.getInstance().getReference()
-                        //User A has a new following user B
-                        //Inside Firebase, User ID as the root node
-                        //Follwing users are child nodes
-                        //which is the same structure as the user_photo
-                        .child(getString(R.string.dbname_following))
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())//this is you
-                        .child(mUser.getUser_id())//following the one u are looking at
-                        .child(getString(R.string.field_user_id))
-                        .setValue(mUser.getUser_id());
+                addNewFollowing();
 
                 FirebaseDatabase.getInstance().getReference()
                         //User B has a new follower user A
@@ -197,8 +196,30 @@ public class ViewProfileFragment extends Fragment {
 
         return view;
     }
+    private void addNewFollowing(){
+        Following following = new Following();
+        // Set following user id
+        following.setUser_id(mUser.getUser_id());
+        // Set when you start following the user
+        following.setFollow_time(getTimestamp());
 
+        FirebaseDatabase.getInstance().getReference()
+                //User A has a new following user B
+                //Inside Firebase, User ID as the root node
+                //Follwing users are child nodes
+                //which is the same structure as the user_photo
+                .child(getString(R.string.dbname_following))
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())//this is you
+                .child(mUser.getUser_id())//following the one u are looking at
+                //.setValue(following)
+                .setValue(following);
+    }
 
+    private String getTimestamp(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
+        sdf.setTimeZone(TimeZone.getTimeZone("Australia/Victoria"));
+        return sdf.format(new Date());
+    }
 
     private void init(){
 

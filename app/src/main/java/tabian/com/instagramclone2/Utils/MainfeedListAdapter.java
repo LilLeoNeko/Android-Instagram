@@ -364,6 +364,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         String newLikeID = mReference.push().getKey();
         Like like = new Like();
         like.setUser_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        like.setLike_time(getTimestamp());
 
         mReference.child(mContext.getString(R.string.dbname_photos))
                 .child(holder.photo.getPhoto_id())
@@ -380,6 +381,12 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
 
         holder.heart.toggleLike();
         getLikesString(holder);
+    }
+
+    private String getTimestamp(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
+        sdf.setTimeZone(TimeZone.getTimeZone("Australia/Victoria"));
+        return sdf.format(new Date());
     }
 
     private void getCurrentUsername(){

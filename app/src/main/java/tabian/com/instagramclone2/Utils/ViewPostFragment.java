@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.util.StringBuilderPrinter;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,7 +19,6 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,6 +44,7 @@ import tabian.com.instagramclone2.models.Like;
 import tabian.com.instagramclone2.models.Photo;
 import tabian.com.instagramclone2.models.User;
 import tabian.com.instagramclone2.models.UserAccountSettings;
+import tabian.com.instagramclone2.models.LikedPhotos;
 
 /**
  * Created by User on 8/12/2017.
@@ -379,11 +377,16 @@ public class ViewPostFragment extends Fragment {
         String newLikeID = myRef.push().getKey();
         Like like = new Like();
         like.setUser_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        like.setLike_time(getTimestamp());
+
+        LikedPhotos likedPhotos= new LikedPhotos();
+
+
 
         myRef.child(getString(R.string.dbname_photos))
                 .child(mPhoto.getPhoto_id())
                 .child(getString(R.string.field_likes))
-                .child(newLikeID)
+                .child(newLikeID)//
                 .setValue(like);
 
         myRef.child(getString(R.string.dbname_user_photos))
@@ -392,9 +395,22 @@ public class ViewPostFragment extends Fragment {
                 .child(getString(R.string.field_likes))
                 .child(newLikeID)
                 .setValue(like);
+        /**
+         * Add current User Liked Photo to firebase
+         **/
 
+        myRef.child(getString(R.string.dbname_user_likes))
+                .child(like.getUser_id())
+                .child(newLikeID)
+                .setValue(likedPhotos);
         mHeart.toggleLike();
         getLikesString();
+    }
+
+    private String getTimestamp(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
+        sdf.setTimeZone(TimeZone.getTimeZone("Australia/Victoria"));
+        return sdf.format(new Date());
     }
 
     private void getPhotoDetails(){
