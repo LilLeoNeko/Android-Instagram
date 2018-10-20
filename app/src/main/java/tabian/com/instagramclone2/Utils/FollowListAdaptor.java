@@ -65,7 +65,7 @@ public class FollowListAdaptor extends ArrayAdapter<Following> {
         }
         viewHolder.following = getItem(position);
         viewHolder.username.setText(getItem(position).getUser_name());
-        viewHolder.followingUserName.setText(getItem(position).getFollow_name());
+        //viewHolder.followingUserName.setText(getItem(position).getFollow_name());
         ImageLoader imgLoader = ImageLoader.getInstance();
         //imgLoader.displayImage();
 
