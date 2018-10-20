@@ -6,10 +6,16 @@ import java.text.SimpleDateFormat;
 
 public class Following {
     private String user_id;
+    private String user_name;
+    private String follow_id;
+    private String follow_name;
     private String follow_time;
 
-    public Following(String user_id, String follow_time) {
+    public Following(String user_id, String user_name, String follow_id, String follow_name,String follow_time) {
         this.user_id = user_id;
+        this.user_name = user_name;
+        this.follow_id = follow_id;
+        this.follow_name = follow_name;
         this.follow_time = follow_time;
     }
 
@@ -19,6 +25,9 @@ public class Following {
 
     protected Following(Parcel in){
         user_id = in.readString();
+        user_name = in.readString();
+        follow_id = in.readString();
+        follow_name = in.readString();
         follow_time = in.readString();
     }
 
@@ -28,6 +37,30 @@ public class Following {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getFollow_id() {
+        return follow_id;
+    }
+
+    public void setFollow_id(String follow_id) {
+        this.follow_id = follow_id;
+    }
+
+    public String getFollow_name() {
+        return follow_name;
+    }
+
+    public void setFollow_name(String follow_name) {
+        this.follow_name = follow_name;
     }
 
     public String getFollow_time(){
@@ -42,7 +75,10 @@ public class Following {
     public String toString() {
         return "Following{" +
                 "user_id='" + user_id + '\'' +
-                ", follow_time='" + follow_time +
+                ", user_name='" + user_name + '\'' +
+                ", follow_id='" + follow_id + '\'' +
+                ", follow_name='" + follow_name + '\'' +
+                ", follow_time='" + follow_time + '\'' +
                 '}';
     }
 }

@@ -44,6 +44,7 @@ import tabian.com.instagramclone2.models.Like;
 import tabian.com.instagramclone2.models.Photo;
 import tabian.com.instagramclone2.models.User;
 import tabian.com.instagramclone2.models.UserAccountSettings;
+import tabian.com.instagramclone2.models.UserLikePhotos;
 
 /**
  * Created by User on 9/22/2017.
@@ -143,7 +144,6 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                 Log.d(TAG, "onClick: loading comment thread for " + getItem(position).getPhoto_id());
                 ((HomeActivity)mContext).onCommentThreadSelected(getItem(position),
                         mContext.getString(R.string.home_activity));
-
                 //going to need to do something else?
                 ((HomeActivity)mContext).hideLayout();
 
@@ -331,7 +331,10 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                                     .child(mContext.getString(R.string.field_likes))
                                     .child(keyID)
                                     .removeValue();
-
+                            mReference.child(mContext.getString(R.string.dbname_user_like_photos))
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child(keyID)
+                                    .removeValue();
                             mHolder.heart.toggleLike();
                             getLikesString(mHolder);
                         }
@@ -366,6 +369,13 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         like.setUser_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
         like.setLike_time(getTimestamp());
 
+        UserLikePhotos userLikePhotos = new UserLikePhotos();
+        userLikePhotos.setUser_who_like(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        userLikePhotos.setUser_own_pic(holder.photo.getUser_id());
+        userLikePhotos.setImg_id(holder.photo.getPhoto_id());
+        userLikePhotos.setImg_URL(holder.photo.getImage_path());
+        userLikePhotos.setLike_time(getTimestamp());
+
         mReference.child(mContext.getString(R.string.dbname_photos))
                 .child(holder.photo.getPhoto_id())
                 .child(mContext.getString(R.string.field_likes))
@@ -378,6 +388,13 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                 .child(mContext.getString(R.string.field_likes))
                 .child(newLikeID)
                 .setValue(like);
+        /**
+         * Add current User Liked Photo to firebase
+         **/
+        mReference.child(mContext.getString(R.string.dbname_user_like_photos))
+                .child(like.getUser_id())
+                .child(newLikeID)
+                .setValue(userLikePhotos);
 
         holder.heart.toggleLike();
         getLikesString(holder);

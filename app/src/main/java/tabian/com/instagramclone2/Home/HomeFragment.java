@@ -53,7 +53,6 @@ public class HomeFragment extends Fragment implements OnUpdateListener, OnLoadLi
     @Override
     public void onUpdate() {
         Log.d(TAG, "ElasticListView: updating list view...");
-
         getFollowing();
     }
 
@@ -61,7 +60,6 @@ public class HomeFragment extends Fragment implements OnUpdateListener, OnLoadLi
     @Override
     public void onLoad() {
         Log.d(TAG, "ElasticListView: loading...");
-
         // Notify load is done
         mListView.notifyLoaded();
     }
@@ -312,8 +310,7 @@ public class HomeFragment extends Fragment implements OnUpdateListener, OnLoadLi
 
         Query query = FirebaseDatabase.getInstance().getReference()
                 .child(getActivity().getString(R.string.dbname_following))
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                ;
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -348,7 +348,6 @@ public class ViewPostFragment extends Fragment {
                                     .removeValue();
                             myRef.child(getString(R.string.dbname_user_like_photos))
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .child(getString(R.string.field_likes))
                                     .child(keyID)
                                     .removeValue();
                             mHeart.toggleLike();
@@ -410,7 +409,6 @@ public class ViewPostFragment extends Fragment {
         /**
          * Add current User Liked Photo to firebase
          **/
-
         myRef.child(getString(R.string.dbname_user_like_photos))
                 .child(like.getUser_id())
                 .child(newLikeID)
