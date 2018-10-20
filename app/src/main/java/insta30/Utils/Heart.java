@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.Utils;
+package insta30.Utils;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

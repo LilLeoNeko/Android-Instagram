@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.Utils;
+package insta30.Utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

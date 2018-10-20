@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.Utils;
+package insta30.Utils;
 
 
 import android.content.Context;
@@ -38,13 +38,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.models.Comment;
-import tabian.com.instagramclone2.models.Like;
-import tabian.com.instagramclone2.models.Photo;
-import tabian.com.instagramclone2.models.User;
-import tabian.com.instagramclone2.models.UserAccountSettings;
-import tabian.com.instagramclone2.models.UserLikePhotos;
+import g30.gsm.com.instagram.R;
+import insta30.models.Comment;
+import insta30.models.Like;
+import insta30.models.Photo;
+import insta30.models.User;
+import insta30.models.UserAccountSettings;
 
 /**
  * Created by User on 8/12/2017.
@@ -328,8 +327,6 @@ public class ViewPostFragment extends Fragment {
                         String keyID = singleSnapshot.getKey();
 
                         //case1: Then user already liked the photo
-                        //Which means the user cancels previous like
-
                         if(mLikedByCurrentUser &&
                                 singleSnapshot.getValue(Like.class).getUser_id()
                                 .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
@@ -346,18 +343,11 @@ public class ViewPostFragment extends Fragment {
                                     .child(getString(R.string.field_likes))
                                     .child(keyID)
                                     .removeValue();
-                            myRef.child(getString(R.string.dbname_user_like_photos))
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .child(getString(R.string.field_likes))
-                                    .child(keyID)
-                                    .removeValue();
+
                             mHeart.toggleLike();
                             getLikesString();
                         }
-
                         //case2: The user has not liked the photo
-                        //Which means the user give this pic a like
-
                         else if(!mLikedByCurrentUser){
                             //add new like
                             addNewLike();
@@ -386,19 +376,11 @@ public class ViewPostFragment extends Fragment {
         String newLikeID = myRef.push().getKey();
         Like like = new Like();
         like.setUser_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        like.setLike_time(getTimestamp());
-
-        UserLikePhotos userLikePhotos = new UserLikePhotos();
-        userLikePhotos.setUser_who_like(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        userLikePhotos.setUser_own_pic(mPhoto.getUser_id());
-        userLikePhotos.setImg_id(mPhoto.getPhoto_id());
-        userLikePhotos.setImg_URL(mPhoto.getImage_path());
-        userLikePhotos.setLike_time(getTimestamp());
 
         myRef.child(getString(R.string.dbname_photos))
                 .child(mPhoto.getPhoto_id())
                 .child(getString(R.string.field_likes))
-                .child(newLikeID)//
+                .child(newLikeID)
                 .setValue(like);
 
         myRef.child(getString(R.string.dbname_user_photos))
@@ -407,22 +389,9 @@ public class ViewPostFragment extends Fragment {
                 .child(getString(R.string.field_likes))
                 .child(newLikeID)
                 .setValue(like);
-        /**
-         * Add current User Liked Photo to firebase
-         **/
 
-        myRef.child(getString(R.string.dbname_user_like_photos))
-                .child(like.getUser_id())
-                .child(newLikeID)
-                .setValue(userLikePhotos);
         mHeart.toggleLike();
         getLikesString();
-    }
-
-    private String getTimestamp(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
-        sdf.setTimeZone(TimeZone.getTimeZone("Australia/Victoria"));
-        return sdf.format(new Date());
     }
 
     private void getPhotoDetails(){
