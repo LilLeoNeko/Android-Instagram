@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.models;
+package insta30.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
