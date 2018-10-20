@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.Home;
+package insta30.Home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,13 +34,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.Utils.MainfeedListAdapter;
-import tabian.com.instagramclone2.Utils.StoriesRecyclerViewAdapter;
-import tabian.com.instagramclone2.models.Comment;
-import tabian.com.instagramclone2.models.Photo;
-import tabian.com.instagramclone2.models.Story;
-import tabian.com.instagramclone2.models.UserAccountSettings;
+import g30.gsm.com.instagram.R;
+import insta30.Utils.MainfeedListAdapter;
+import insta30.Utils.StoriesRecyclerViewAdapter;
+import insta30.models.Comment;
+import insta30.models.Photo;
+import insta30.models.Story;
+import insta30.models.UserAccountSettings;
 
 /**
  * Created by User on 5/28/2017.
@@ -89,7 +89,7 @@ public class HomeFragment extends Fragment implements OnUpdateListener, OnLoadLi
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 //        mListView = (ListView) view.findViewById(R.id.listView);
-        mListView = view.findViewById(R.id.listViewhome);
+        mListView = view.findViewById(R.id.listView);
 
         initListViewRefresh();
         getFollowing();
