@@ -144,6 +144,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                 Log.d(TAG, "onClick: loading comment thread for " + getItem(position).getPhoto_id());
                 ((HomeActivity)mContext).onCommentThreadSelected(getItem(position),
                         mContext.getString(R.string.home_activity));
+
                 //going to need to do something else?
                 ((HomeActivity)mContext).hideLayout();
 
