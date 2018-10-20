@@ -1,4 +1,4 @@
-package insta30.Share;
+package tabian.com.instagramclone2.Share;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,11 +19,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import g30.gsm.com.instagram.R;
-import insta30.Utils.FirebaseMethods;
-import insta30.Utils.UniversalImageLoader;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.Utils.FirebaseMethods;
+import tabian.com.instagramclone2.Utils.UniversalImageLoader;
+import tabian.com.instagramclone2.models.User;
 
 /**
  * Created by User on 7/24/2017.

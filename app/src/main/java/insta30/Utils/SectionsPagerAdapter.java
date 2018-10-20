@@ -1,4 +1,4 @@
-package insta30.Utils;
+package tabian.com.instagramclone2.Utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

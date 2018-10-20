@@ -1,4 +1,4 @@
-package insta30.models;
+package tabian.com.instagramclone2.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 /**
@@ -14,8 +14,6 @@ public class UserAccountSettings implements Parcelable{
     private String username;
     private String website;
     private String user_id;
-    private long phone_number;
-
     public UserAccountSettings(String description, String display_name, long followers,
                                long following, long posts, String profile_photo, String username,
                                String website, String user_id) {
@@ -28,7 +26,6 @@ public class UserAccountSettings implements Parcelable{
         this.username = username;
         this.website = website;
         this.user_id = user_id;
-
     }
     public UserAccountSettings() {
 
@@ -43,7 +40,6 @@ public class UserAccountSettings implements Parcelable{
         username = in.readString();
         website = in.readString();
         user_id = in.readString();
-        phone_number=in.readLong();
     }
 
     public static final Creator<UserAccountSettings> CREATOR = new Creator<UserAccountSettings>() {
@@ -51,6 +47,7 @@ public class UserAccountSettings implements Parcelable{
         public UserAccountSettings createFromParcel(Parcel in) {
             return new UserAccountSettings(in);
         }
+
         @Override
         public UserAccountSettings[] newArray(int size) {
             return new UserAccountSettings[size];
@@ -129,13 +126,6 @@ public class UserAccountSettings implements Parcelable{
         this.website = website;
     }
 
-    public long getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(Long phone_number) {
-        this.phone_number = phone_number;
-    }
 
     @Override
     public String toString() {
@@ -148,7 +138,6 @@ public class UserAccountSettings implements Parcelable{
                 ", profile_photo='" + profile_photo + '\'' +
                 ", username='" + username + '\'' +
                 ", website='" + website + '\'' +
-                ", website='" + phone_number + '\'' +
                 '}';
     }
 
@@ -168,6 +157,5 @@ public class UserAccountSettings implements Parcelable{
         dest.writeString(username);
         dest.writeString(website);
         dest.writeString(user_id);
-        dest.writeLong(phone_number);
     }
 }

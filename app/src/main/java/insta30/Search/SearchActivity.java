@@ -1,4 +1,4 @@
-package insta30.Search;
+package tabian.com.instagramclone2.Search;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,11 +28,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import insta30.Profile.ProfileActivity;
-import g30.gsm.com.instagram.R;
-import insta30.Utils.BottomNavigationViewHelper;
-import insta30.Utils.UserListAdapter;
-import insta30.models.User;
+import tabian.com.instagramclone2.Profile.ProfileActivity;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.Utils.BottomNavigationViewHelper;
+import tabian.com.instagramclone2.Utils.UserListAdapter;
+import tabian.com.instagramclone2.models.User;
 
 /**
  * Created by User on 5/28/2017.

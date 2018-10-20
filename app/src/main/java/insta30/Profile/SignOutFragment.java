@@ -1,4 +1,5 @@
-package insta30.Profile;
+package tabian.com.instagramclone2.Profile;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,9 +16,11 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import insta30.Login.LoginActivity;
+import java.net.Inet4Address;
 
-import g30.gsm.com.instagram.R;
+import tabian.com.instagramclone2.Login.LoginActivity;
+import tabian.com.instagramclone2.R;
+
 /**
  * Created by User on 6/4/2017.
  */

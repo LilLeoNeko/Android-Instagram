@@ -1,4 +1,4 @@
-package insta30.models;
+package tabian.com.instagramclone2.models;
 
 import java.util.List;
 

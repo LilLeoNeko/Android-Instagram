@@ -1,5 +1,6 @@
-package insta30.Profile;
+package tabian.com.instagramclone2.Profile;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,16 +38,18 @@ import java.util.List;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import g30.gsm.com.instagram.R;
-import insta30.Utils.BottomNavigationViewHelper;
-import insta30.Utils.FirebaseMethods;
-import insta30.Utils.GridImageAdapter;
-import insta30.Utils.UniversalImageLoader;
-import insta30.models.Comment;
-import insta30.models.Like;
-import insta30.models.Photo;
-import insta30.models.UserAccountSettings;
-import insta30.models.UserSettings;
+import tabian.com.instagramclone2.Login.LoginActivity;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.Utils.BottomNavigationViewHelper;
+import tabian.com.instagramclone2.Utils.FirebaseMethods;
+import tabian.com.instagramclone2.Utils.GridImageAdapter;
+import tabian.com.instagramclone2.Utils.UniversalImageLoader;
+import tabian.com.instagramclone2.models.Comment;
+import tabian.com.instagramclone2.models.Like;
+import tabian.com.instagramclone2.models.Photo;
+import tabian.com.instagramclone2.models.User;
+import tabian.com.instagramclone2.models.UserAccountSettings;
+import tabian.com.instagramclone2.models.UserSettings;
 
 /**
  * Created by User on 6/29/2017.
@@ -70,6 +75,7 @@ public class ProfileFragment extends Fragment {
     private DatabaseReference myRef;
     private FirebaseMethods mFirebaseMethods;
 
+
     //widgets
     private TextView mPosts, mFollowers, mFollowing, mDisplayName, mUsername, mWebsite, mDescription;
     private ProgressBar mProgressBar;
@@ -80,10 +86,12 @@ public class ProfileFragment extends Fragment {
     private BottomNavigationViewEx bottomNavigationView;
     private Context mContext;
 
+
     //vars
     private int mFollowersCount = 0;
     private int mFollowingCount = 0;
     private int mPostsCount = 0;
+
 
     @Nullable
     @Override
@@ -105,6 +113,7 @@ public class ProfileFragment extends Fragment {
         mContext = getActivity();
         mFirebaseMethods = new FirebaseMethods(getActivity());
         Log.d(TAG, "onCreateView: stared.");
+
 
         setupBottomNavigationView();
         setupToolbar();
@@ -289,8 +298,8 @@ public class ProfileFragment extends Fragment {
     }
 
     private void setProfileWidgets(UserSettings userSettings) {
-        Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.toString());
-        Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.getSettings().getUsername());
+        //Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.toString());
+        //Log.d(TAG, "setProfileWidgets: setting widgets with data retrieving from firebase database: " + userSettings.getSettings().getUsername());
 
 
         //User user = userSettings.getUser();
@@ -299,8 +308,8 @@ public class ProfileFragment extends Fragment {
         UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
 
 //        Glide.with(getActivity())
- //               .load(settings.getProfile_photo())
- //               .into(mProfilePhoto);
+//                .load(settings.getProfile_photo())
+//                .into(mProfilePhoto);
 
         mDisplayName.setText(settings.getDisplay_name());
         mUsername.setText(settings.getUsername());
@@ -310,7 +319,7 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    /**
+        /**
      * Responsible for setting up the profile toolbar
      */
     private void setupToolbar(){
@@ -328,7 +337,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    /**
+        /**
      * BottomNavigationView setup
      */
     private void setupBottomNavigationView(){

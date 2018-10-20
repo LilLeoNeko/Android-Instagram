@@ -1,4 +1,4 @@
-package insta30.Login;
+package tabian.com.instagramclone2.Login;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,8 +21,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import insta30.Home.HomeActivity;
-import g30.gsm.com.instagram.R;
+import tabian.com.instagramclone2.Home.HomeActivity;
+import tabian.com.instagramclone2.R;
 
 /**
  * Created by User on 6/19/2017.

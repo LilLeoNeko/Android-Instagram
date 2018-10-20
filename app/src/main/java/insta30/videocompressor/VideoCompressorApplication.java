@@ -1,10 +1,10 @@
-package insta30.videocompressor;/*
+package tabian.com.instagramclone2.videocompressor;/*
 * By Jorge E. Hernandez (@lalongooo) 2015
 * */
 
 import android.app.Application;
 
-import insta30.videocompressor.file.FileUtils;
+import tabian.com.instagramclone2.videocompressor.file.FileUtils;
 
 public class VideoCompressorApplication extends Application {
 

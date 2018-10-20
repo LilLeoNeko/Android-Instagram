@@ -1,4 +1,4 @@
-package insta30.easyvideoplayer;
+package tabian.com.instagramclone2.easyvideoplayer;
 
 import android.content.Context;
 import android.content.res.TypedArray;

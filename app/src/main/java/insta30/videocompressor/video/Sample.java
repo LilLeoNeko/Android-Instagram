@@ -6,7 +6,7 @@
  * Copyright Nikolai Kudashov, 2013-2014.
  */
 
-package insta30.videocompressor.video;
+package tabian.com.instagramclone2.videocompressor.video;
 
 public class Sample {
     private long offset = 0;

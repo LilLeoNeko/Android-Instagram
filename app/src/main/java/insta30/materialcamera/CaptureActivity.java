@@ -1,10 +1,10 @@
-package insta30.materialcamera;
+package tabian.com.instagramclone2.materialcamera;
 
 import android.app.Fragment;
 import android.support.annotation.NonNull;
 
-import insta30.materialcamera.internal.BaseCaptureActivity;
-import insta30.materialcamera.internal.CameraFragment;
+import tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity;
+import tabian.com.instagramclone2.materialcamera.internal.CameraFragment;
 
 public class CaptureActivity extends BaseCaptureActivity {
 

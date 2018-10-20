@@ -1,4 +1,4 @@
-package insta30.opengl;
+package tabian.com.instagramclone2.opengl;
 
 import android.Manifest;
 import android.app.DialogFragment;
@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import insta30.Home.HomeActivity;
-import g30.gsm.com.instagram.R;
+import tabian.com.instagramclone2.Home.HomeActivity;
+import tabian.com.instagramclone2.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package insta30.Utils;
+package tabian.com.instagramclone2.Utils;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;

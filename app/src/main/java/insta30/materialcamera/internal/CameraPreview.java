@@ -1,4 +1,4 @@
-package insta30.materialcamera.internal;
+package tabian.com.instagramclone2.materialcamera.internal;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

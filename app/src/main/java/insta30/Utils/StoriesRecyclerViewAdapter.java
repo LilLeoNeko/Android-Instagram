@@ -1,4 +1,4 @@
-package insta30.Utils;
+package tabian.com.instagramclone2.Utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,9 +22,9 @@ import org.json.JSONException;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import insta30.Home.HomeActivity;
-import g30.gsm.com.instagram.R;
-import insta30.opengl.OpenGLES10Activity;
+import tabian.com.instagramclone2.Home.HomeActivity;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.opengl.OpenGLES10Activity;
 
 
 /**

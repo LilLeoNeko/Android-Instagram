@@ -1,4 +1,4 @@
-package insta30.videocompressor.video;
+package tabian.com.instagramclone2.videocompressor.video;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import insta30.videocompressor.Config;
+import tabian.com.instagramclone2.videocompressor.Config;
 
 
 @SuppressLint("NewApi")

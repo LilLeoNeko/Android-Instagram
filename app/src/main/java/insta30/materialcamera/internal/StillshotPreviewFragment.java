@@ -1,4 +1,4 @@
-package insta30.materialcamera.internal;
+package tabian.com.instagramclone2.materialcamera.internal;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -15,9 +15,10 @@ import com.bumptech.glide.Glide;
 
 import java.io.File;
 
-import g30.gsm.com.instagram.R;
+import tabian.com.instagramclone2.R;
 
-public class StillshotPreviewFragment extends BaseGalleryFragment {
+
+public class StillshotPreviewFragment extends tabian.com.instagramclone2.materialcamera.internal.BaseGalleryFragment {
 
   private static final String TAG = "StillshotPreviewFragmen";
 
@@ -35,7 +36,7 @@ public class StillshotPreviewFragment extends BaseGalleryFragment {
     fragment.setRetainInstance(true);
     Bundle args = new Bundle();
     args.putString("output_uri", outputUri);
-    args.putBoolean(CameraIntentKey.ALLOW_RETRY, allowRetry);
+    args.putBoolean(tabian.com.instagramclone2.materialcamera.internal.CameraIntentKey.ALLOW_RETRY, allowRetry);
     args.putInt(CameraIntentKey.PRIMARY_COLOR, primaryColor);
     fragment.setArguments(args);
     return fragment;

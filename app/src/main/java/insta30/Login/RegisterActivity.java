@@ -1,4 +1,4 @@
-package insta30.Login;
+package tabian.com.instagramclone2.Login;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -22,9 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import g30.gsm.com.instagram.R;
-import insta30.Utils.FirebaseMethods;
-import insta30.models.User;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.Utils.FirebaseMethods;
+import tabian.com.instagramclone2.models.User;
 
 /**
  * Created by User on 6/19/2017.

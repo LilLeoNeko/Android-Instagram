@@ -1,4 +1,4 @@
-package insta30.materialcamera.internal;
+package tabian.com.instagramclone2.materialcamera.internal;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -14,10 +14,10 @@ import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
-import g30.gsm.com.instagram.R;
-import insta30.easyvideoplayer.EasyVideoCallback;
-import insta30.easyvideoplayer.EasyVideoPlayer;
-import insta30.materialcamera.util.CameraUtil;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.easyvideoplayer.EasyVideoCallback;
+import tabian.com.instagramclone2.easyvideoplayer.EasyVideoPlayer;
+import tabian.com.instagramclone2.materialcamera.util.CameraUtil;
 
 
 /** @author Aidan Follestad (afollestad) */
@@ -60,8 +60,8 @@ public class PlaybackVideoFragment extends Fragment
     fragment.setRetainInstance(true);
     Bundle args = new Bundle();
     args.putString("output_uri", outputUri);
-    args.putBoolean(CameraIntentKey.ALLOW_RETRY, allowRetry);
-    args.putInt(CameraIntentKey.PRIMARY_COLOR, primaryColor);
+    args.putBoolean(tabian.com.instagramclone2.materialcamera.internal.CameraIntentKey.ALLOW_RETRY, allowRetry);
+    args.putInt(tabian.com.instagramclone2.materialcamera.internal.CameraIntentKey.PRIMARY_COLOR, primaryColor);
     fragment.setArguments(args);
     return fragment;
   }
@@ -103,7 +103,7 @@ public class PlaybackVideoFragment extends Fragment
     mPlayer.setPlayDrawableRes(mInterface.iconPlay());
     mPlayer.setPauseDrawableRes(mInterface.iconPause());
 
-    if (getArguments().getBoolean(CameraIntentKey.ALLOW_RETRY, true))
+    if (getArguments().getBoolean(tabian.com.instagramclone2.materialcamera.internal.CameraIntentKey.ALLOW_RETRY, true))
       mPlayer.setLeftAction(EasyVideoPlayer.LEFT_ACTION_RETRY);
     mPlayer.setRightAction(EasyVideoPlayer.RIGHT_ACTION_SUBMIT);
 

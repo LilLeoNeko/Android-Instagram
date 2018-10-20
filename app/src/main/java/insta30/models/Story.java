@@ -1,4 +1,4 @@
-package insta30.models;
+package tabian.com.instagramclone2.models;
 
 /**
  * Created by User on 1/7/2018.

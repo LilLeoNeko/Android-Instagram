@@ -1,4 +1,4 @@
-package insta30.Utils;
+package tabian.com.instagramclone2.Utils;
 
 
 import android.content.Context;
@@ -7,13 +7,19 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,19 +31,26 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
-import insta30.Home.HomeActivity;
-import g30.gsm.com.instagram.R;
-import insta30.models.Comment;
-import insta30.models.Photo;
+import tabian.com.instagramclone2.Home.HomeActivity;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.models.Comment;
+import tabian.com.instagramclone2.models.Like;
+import tabian.com.instagramclone2.models.Photo;
+import tabian.com.instagramclone2.models.User;
+import tabian.com.instagramclone2.models.UserAccountSettings;
 
 /**
  * Created by User on 8/12/2017.

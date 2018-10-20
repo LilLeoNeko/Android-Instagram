@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package insta30.materialcamera.internal;
+package tabian.com.instagramclone2.materialcamera.internal;
 
 import android.content.Context;
 import android.util.AttributeSet;

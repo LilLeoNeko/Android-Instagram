@@ -1,4 +1,4 @@
-package insta30.materialcamera.util;
+package tabian.com.instagramclone2.materialcamera.util;
 
 import android.os.Build;
 

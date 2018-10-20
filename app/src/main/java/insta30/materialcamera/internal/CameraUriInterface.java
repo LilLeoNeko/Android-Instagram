@@ -1,4 +1,4 @@
-package insta30.materialcamera.internal;
+package tabian.com.instagramclone2.materialcamera.internal;
 
 /** @author Aidan Follestad (afollestad) */
 interface CameraUriInterface {

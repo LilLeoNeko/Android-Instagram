@@ -1,8 +1,10 @@
-package insta30.Share;
+package tabian.com.instagramclone2.Share;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -23,11 +25,11 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.ArrayList;
 
-import insta30.Profile.AccountSettingsActivity;
-import g30.gsm.com.instagram.R;
-import insta30.Utils.FilePaths;
-import insta30.Utils.FileSearch;
-import insta30.Utils.GridImageAdapter;
+import tabian.com.instagramclone2.Profile.AccountSettingsActivity;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.Utils.FilePaths;
+import tabian.com.instagramclone2.Utils.FileSearch;
+import tabian.com.instagramclone2.Utils.GridImageAdapter;
 
 /**
  * Created by User on 5/28/2017.
@@ -102,7 +104,8 @@ public class GalleryFragment extends Fragment {
     }
 
     private boolean isRootTask(){
-        return ((ShareActivity) getActivity()).getTask() == 0;
+        //return ((ShareActivity) getActivity()).getTask() == 0;
+        return true;
     }
 
     private void init(){

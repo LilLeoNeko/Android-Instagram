@@ -1,4 +1,4 @@
-package insta30.materialcamera.util;
+package tabian.com.instagramclone2.materialcamera.util;
 
 
 
@@ -16,7 +16,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.zip.Deflater;
 
-import insta30.materialcamera.ICallback;
+import tabian.com.instagramclone2.materialcamera.ICallback;
+
+import static tabian.com.instagramclone2.materialcamera.util.Degrees.DEGREES_270;
+import static tabian.com.instagramclone2.materialcamera.util.Degrees.DEGREES_90;
 
 /** Created by tomiurankar on 06/03/16. */
 public class ImageUtil {
@@ -119,7 +122,7 @@ public class ImageUtil {
     int inSampleSize = 1;
 
     // Check for rotation
-    if (rotationInDegrees == Degrees.DEGREES_90 || rotationInDegrees == Degrees.DEGREES_270) {
+    if (rotationInDegrees == DEGREES_90 || rotationInDegrees == DEGREES_270) {
       width = options.outHeight;
       height = options.outWidth;
     } else {

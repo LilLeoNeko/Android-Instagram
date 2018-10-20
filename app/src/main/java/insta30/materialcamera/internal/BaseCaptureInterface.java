@@ -1,10 +1,12 @@
-package insta30.materialcamera.internal;
+package tabian.com.instagramclone2.materialcamera.internal;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
 import java.util.List;
+
+import tabian.com.instagramclone2.materialcamera.internal.*;
 
 /** @author Aidan Follestad (afollestad) */
 public interface BaseCaptureInterface {
@@ -35,7 +37,7 @@ public interface BaseCaptureInterface {
 
   Object getCurrentCameraId();
 
-  @BaseCaptureActivity.CameraPosition
+  @tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CameraPosition
   int getCurrentCameraPosition();
 
   void setFrontCamera(Object id);
@@ -120,10 +122,10 @@ public interface BaseCaptureInterface {
   void toggleFlashModeVideo();
 
 
-  @BaseCaptureActivity.FlashMode
+  @tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FlashMode
   int getFlashMode();
 
-  @BaseCaptureActivity.FlashMode
+  @tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FlashMode
   int getFlashModeVideo();
 
   @DrawableRes

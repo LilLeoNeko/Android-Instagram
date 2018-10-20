@@ -1,4 +1,4 @@
-package insta30.materialcamera.internal;
+package tabian.com.instagramclone2.materialcamera.internal;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -23,12 +23,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import g30.gsm.com.instagram.R;
-import insta30.materialcamera.ICallback;
-import insta30.materialcamera.util.CameraUtil;
-import insta30.materialcamera.util.Degrees;
-import insta30.materialcamera.util.ImageUtil;
-import insta30.materialcamera.util.ManufacturerUtil;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.materialcamera.ICallback;
+import tabian.com.instagramclone2.materialcamera.util.CameraUtil;
+import tabian.com.instagramclone2.materialcamera.util.Degrees;
+import tabian.com.instagramclone2.materialcamera.util.ImageUtil;
+import tabian.com.instagramclone2.materialcamera.util.ManufacturerUtil;
+
+import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_BACK;
+import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_FRONT;
+import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_UNKNOWN;
+import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_ALWAYS_ON;
+import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_AUTO;
+import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_OFF;
 
 /** @author Aidan Follestad (afollestad) */
 @SuppressWarnings("deprecation")
@@ -37,7 +44,7 @@ public class CameraFragment extends BaseCameraFragment implements View.OnClickLi
 
   private static final String TAG = "CameraFragment";
 
-  CameraPreview mPreviewView;
+  tabian.com.instagramclone2.materialcamera.internal.CameraPreview mPreviewView;
   RelativeLayout mPreviewFrame;
 
   private Camera.Size mVideoSize;
@@ -170,37 +177,37 @@ public class CameraFragment extends BaseCameraFragment implements View.OnClickLi
       }
 
       switch (getCurrentCameraPosition()) {
-        case BaseCaptureActivity.CAMERA_POSITION_FRONT:
+        case CAMERA_POSITION_FRONT:
           setImageRes(mButtonFacing, mInterface.iconRearCamera());
           break;
-        case BaseCaptureActivity.CAMERA_POSITION_BACK:
+        case CAMERA_POSITION_BACK:
           setImageRes(mButtonFacing, mInterface.iconFrontCamera());
           break;
-        case BaseCaptureActivity.CAMERA_POSITION_UNKNOWN:
+        case CAMERA_POSITION_UNKNOWN:
         default:
           if (getArguments().getBoolean(CameraIntentKey.DEFAULT_TO_FRONT_FACING, false)) {
             // Check front facing first
             if (mInterface.getFrontCamera() != null
                 && (Integer) mInterface.getFrontCamera() != -1) {
               setImageRes(mButtonFacing, mInterface.iconRearCamera());
-              mInterface.setCameraPosition(BaseCaptureActivity.CAMERA_POSITION_FRONT);
+              mInterface.setCameraPosition(CAMERA_POSITION_FRONT);
             } else {
               setImageRes(mButtonFacing, mInterface.iconFrontCamera());
               if (mInterface.getBackCamera() != null && (Integer) mInterface.getBackCamera() != -1)
-                mInterface.setCameraPosition(BaseCaptureActivity.CAMERA_POSITION_BACK);
-              else mInterface.setCameraPosition(BaseCaptureActivity.CAMERA_POSITION_UNKNOWN);
+                mInterface.setCameraPosition(CAMERA_POSITION_BACK);
+              else mInterface.setCameraPosition(CAMERA_POSITION_UNKNOWN);
             }
           } else {
             // Check back facing first
             if (mInterface.getBackCamera() != null && (Integer) mInterface.getBackCamera() != -1) {
               setImageRes(mButtonFacing, mInterface.iconFrontCamera());
-              mInterface.setCameraPosition(BaseCaptureActivity.CAMERA_POSITION_BACK);
+              mInterface.setCameraPosition(CAMERA_POSITION_BACK);
             } else {
               setImageRes(mButtonFacing, mInterface.iconRearCamera());
               if (mInterface.getFrontCamera() != null
                   && (Integer) mInterface.getFrontCamera() != -1)
-                mInterface.setCameraPosition(BaseCaptureActivity.CAMERA_POSITION_FRONT);
-              else mInterface.setCameraPosition(BaseCaptureActivity.CAMERA_POSITION_UNKNOWN);
+                mInterface.setCameraPosition(CAMERA_POSITION_FRONT);
+              else mInterface.setCameraPosition(CAMERA_POSITION_UNKNOWN);
             }
           }
           break;
@@ -306,7 +313,7 @@ public class CameraFragment extends BaseCameraFragment implements View.OnClickLi
       jpegOrientation = previewOrientation = mDisplayOrientation;
 
       if (Degrees.isPortrait(deviceOrientation)
-          && getCurrentCameraPosition() == BaseCaptureActivity.CAMERA_POSITION_FRONT)
+          && getCurrentCameraPosition() == CAMERA_POSITION_FRONT)
         previewOrientation = Degrees.mirror(mDisplayOrientation);
     }
 
@@ -319,8 +326,8 @@ public class CameraFragment extends BaseCameraFragment implements View.OnClickLi
     if (activity == null) return;
     if (mWindowSize == null) mWindowSize = new Point();
     activity.getWindowManager().getDefaultDisplay().getSize(mWindowSize);
-    mPreviewView = new CameraPreview(getActivity(), mCamera);
-    if (mPreviewFrame.getChildCount() > 0 && mPreviewFrame.getChildAt(0) instanceof CameraPreview)
+    mPreviewView = new tabian.com.instagramclone2.materialcamera.internal.CameraPreview(getActivity(), mCamera);
+    if (mPreviewFrame.getChildCount() > 0 && mPreviewFrame.getChildAt(0) instanceof tabian.com.instagramclone2.materialcamera.internal.CameraPreview)
       mPreviewFrame.removeViewAt(0);
     mPreviewFrame.addView(mPreviewView, 0);
     Log.d(TAG, "createPreview: window size x: " + mWindowSize.x);
@@ -522,13 +529,13 @@ public class CameraFragment extends BaseCameraFragment implements View.OnClickLi
     String flashMode = null;
     if(mInterface.useStillshot()){
       switch (mInterface.getFlashMode()) {
-        case BaseCaptureActivity.FLASH_MODE_AUTO:
+        case FLASH_MODE_AUTO:
           flashMode = Camera.Parameters.FLASH_MODE_AUTO;
           break;
-        case BaseCaptureActivity.FLASH_MODE_ALWAYS_ON:
+        case FLASH_MODE_ALWAYS_ON:
           flashMode = Camera.Parameters.FLASH_MODE_ON;
           break;
-        case BaseCaptureActivity.FLASH_MODE_OFF:
+        case FLASH_MODE_OFF:
           flashMode = Camera.Parameters.FLASH_MODE_OFF;
         default:
           break;
@@ -541,11 +548,11 @@ public class CameraFragment extends BaseCameraFragment implements View.OnClickLi
     }
     else if(!mInterface.useStillshot()){
       switch (mInterface.getFlashModeVideo()) {
-        case BaseCaptureActivity.FLASH_MODE_ALWAYS_ON:
+        case FLASH_MODE_ALWAYS_ON:
           flashMode = Camera.Parameters.FLASH_MODE_ON;
           Log.d(TAG, "setFlashMode: video flash mode is ON.");
           break;
-        case BaseCaptureActivity.FLASH_MODE_OFF:
+        case FLASH_MODE_OFF:
           Log.d(TAG, "setFlashMode: video flash mode is OFF.");
           flashMode = Camera.Parameters.FLASH_MODE_OFF;
         default:

@@ -1,4 +1,6 @@
-package insta30.Utils;
+package tabian.com.instagramclone2.Utils;
+
+import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -6,6 +8,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -30,26 +33,31 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import g30.gsm.com.instagram.R;
-import insta30.Home.HomeActivity;
-import insta30.Home.HomeFragment;
-import insta30.Profile.AccountSettingsActivity;
-import insta30.materialcamera.MaterialCamera;
-import insta30.models.Photo;
-import insta30.models.Story;
-import insta30.models.User;
-import insta30.models.UserAccountSettings;
-import insta30.models.UserSettings;
+import tabian.com.instagramclone2.Home.HomeActivity;
+import tabian.com.instagramclone2.Home.HomeFragment;
+import tabian.com.instagramclone2.Profile.AccountSettingsActivity;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.materialcamera.MaterialCamera;
+import tabian.com.instagramclone2.models.Photo;
+import tabian.com.instagramclone2.models.Story;
+import tabian.com.instagramclone2.models.User;
+import tabian.com.instagramclone2.models.UserAccountSettings;
+import tabian.com.instagramclone2.models.UserSettings;
+
+
 /**
  * Created by User on 6/26/2017.
  */
 
 public class FirebaseMethods {
+
     private static final String TAG = "FirebaseMethods";
+
     //firebase
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -57,23 +65,26 @@ public class FirebaseMethods {
     private DatabaseReference myRef;
     private StorageReference mStorageReference;
     private String userID;
+
     //vars
     private Context mContext;
     private double mPhotoUploadProgress = 0;
+
     public FirebaseMethods(Context context) {
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
         mStorageReference = FirebaseStorage.getInstance().getReference();
-        mContext = context;//  Retrieve current user from the database.
+        mContext = context;
+
         if(mAuth.getCurrentUser() != null){
             userID = mAuth.getCurrentUser().getUid();
-
         }
     }
 
-    public void uploadNewPhoto(String photoType, final String caption,final int count, final String imgUrl, Bitmap bm){
-        Log.d(TAG, "upload New Photo: attempting to uplaod new photo.");
+    public void uploadNewPhoto(String photoType, final String caption,final int count, final String imgUrl,
+                               Bitmap bm){
+        Log.d(TAG, "uploadNewPhoto: attempting to uplaod new photo.");
 
         FilePaths filePaths = new FilePaths();
         //case1) new photo
@@ -97,7 +108,7 @@ public class FirebaseMethods {
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    //        Uri firebaseUrl = taskSnapshot.getDownloadUrl();
+            //        Uri firebaseUrl = taskSnapshot.getDownloadUrl();
                     taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -165,7 +176,7 @@ public class FirebaseMethods {
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    //    Uri firebaseUrl = taskSnapshot.getDownloadUrl();
+                //    Uri firebaseUrl = taskSnapshot.getDownloadUrl();
                     Task<Uri> firebaseUrl = taskSnapshot.getStorage().getDownloadUrl();
                     Toast.makeText(mContext, "photo upload success", Toast.LENGTH_SHORT).show();
 
@@ -226,7 +237,7 @@ public class FirebaseMethods {
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    //   Uri firebaseURL = taskSnapshot.getDownloadUrl();
+                 //   Uri firebaseURL = taskSnapshot.getDownloadUrl();
                     Task<Uri> firebaseURL = taskSnapshot.getStorage().getDownloadUrl();
                     fragment.mStoriesAdapter.stopProgressBar();
                     Toast.makeText(mContext, "Upload Success", Toast.LENGTH_SHORT).show();
@@ -273,7 +284,7 @@ public class FirebaseMethods {
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    //         Uri firebaseURL = taskSnapshot.getDownloadUrl();
+           //         Uri firebaseURL = taskSnapshot.getDownloadUrl();
                     Task<Uri> firebaseURL = taskSnapshot.getStorage().getDownloadUrl();
 
                     fragment.mStoriesAdapter.stopProgressBar();
@@ -402,8 +413,8 @@ public class FirebaseMethods {
     }
 
     private String getTimestamp(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.CANADA);
-        sdf.setTimeZone(TimeZone.getTimeZone("Canada/Pacific"));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
+        sdf.setTimeZone(TimeZone.getTimeZone("Australia/Victoria"));
         return sdf.format(new Date());
     }
 
@@ -690,34 +701,34 @@ public class FirebaseMethods {
             }
 
 
-            // users node
-            Log.d(TAG, "getUserSettings: snapshot key: " + ds.getKey());
-            if(ds.getKey().equals(mContext.getString(R.string.dbname_users))) {
-                Log.d(TAG, "getUserAccountSettings: users node datasnapshot: " + ds);
+                // users node
+                Log.d(TAG, "getUserSettings: snapshot key: " + ds.getKey());
+                if(ds.getKey().equals(mContext.getString(R.string.dbname_users))) {
+                    Log.d(TAG, "getUserAccountSettings: users node datasnapshot: " + ds);
 
-                user.setUsername(
-                        ds.child(userID)
-                                .getValue(User.class)
-                                .getUsername()
-                );
-                user.setEmail(
-                        ds.child(userID)
-                                .getValue(User.class)
-                                .getEmail()
-                );
-                user.setPhone_number(
-                        ds.child(userID)
-                                .getValue(User.class)
-                                .getPhone_number()
-                );
-                user.setUser_id(
-                        ds.child(userID)
-                                .getValue(User.class)
-                                .getUser_id()
-                );
+                    user.setUsername(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getUsername()
+                    );
+                    user.setEmail(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getEmail()
+                    );
+                    user.setPhone_number(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getPhone_number()
+                    );
+                    user.setUser_id(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getUser_id()
+                    );
 
-                Log.d(TAG, "getUserAccountSettings: retrieved users information: " + user.toString());
-            }
+                    Log.d(TAG, "getUserAccountSettings: retrieved users information: " + user.toString());
+                }
         }
         return new UserSettings(user, settings);
 

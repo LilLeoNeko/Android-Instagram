@@ -1,4 +1,6 @@
-package insta30.opengl;
+package tabian.com.instagramclone2.opengl;
+
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -43,17 +45,24 @@ import com.google.android.exoplayer2.util.Util;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
+
 import de.hdodenhof.circleimageview.CircleImageView;
-import g30.gsm.com.instagram.R;
+import tabian.com.instagramclone2.R;
+
+
 import static java.lang.Math.round;
+
+
 /**
  * Created by User on 11/27/2017.
  */
@@ -711,6 +720,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
                             @Override
                             public void onResourceReady(Bitmap bitmap, Transition transition) {
                                 Log.d(TAG, "getMedia: new bitmap ready.");
+
 
                                 float imageHeight = bitmap.getHeight();
                                 float imageWidth = bitmap.getWidth();

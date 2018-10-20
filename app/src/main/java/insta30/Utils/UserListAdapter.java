@@ -1,9 +1,10 @@
-package insta30.Utils;
+package tabian.com.instagramclone2.Utils;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +23,9 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import g30.gsm.com.instagram.R;
-import insta30.models.User;
-import insta30.models.UserAccountSettings;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.models.User;
+import tabian.com.instagramclone2.models.UserAccountSettings;
 
 /**
  * Created by User on 9/17/2017.

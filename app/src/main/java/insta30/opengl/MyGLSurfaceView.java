@@ -1,4 +1,4 @@
-package insta30.opengl;
+package tabian.com.instagramclone2.opengl;
 
 import android.content.Context;
 import android.graphics.PixelFormat;

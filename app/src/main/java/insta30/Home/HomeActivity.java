@@ -1,4 +1,4 @@
-package insta30.Home;
+package tabian.com.instagramclone2.Home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,24 +15,25 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import insta30.Login.LoginActivity;
-import g30.gsm.com.instagram.R;
-import insta30.Utils.BottomNavigationViewHelper;
-import insta30.Utils.FirebaseMethods;
-import insta30.Utils.MainfeedListAdapter;
-import insta30.Utils.SectionsPagerAdapter;
-import insta30.Utils.UniversalImageLoader;
-import insta30.Utils.ViewCommentsFragment;
-import insta30.models.Photo;
-import insta30.opengl.AddToStoryDialog;
-import insta30.opengl.NewStoryActivity;
+import tabian.com.instagramclone2.Login.LoginActivity;
+import tabian.com.instagramclone2.R;
+import tabian.com.instagramclone2.Utils.BottomNavigationViewHelper;
+import tabian.com.instagramclone2.Utils.FirebaseMethods;
+import tabian.com.instagramclone2.Utils.MainfeedListAdapter;
+import tabian.com.instagramclone2.Utils.SectionsPagerAdapter;
+import tabian.com.instagramclone2.Utils.UniversalImageLoader;
+import tabian.com.instagramclone2.Utils.ViewCommentsFragment;
+import tabian.com.instagramclone2.models.Photo;
+import tabian.com.instagramclone2.opengl.AddToStoryDialog;
+import tabian.com.instagramclone2.opengl.NewStoryActivity;
 
-public class HomeActivity extends AppCompatActivity implements MainfeedListAdapter.OnLoadMoreItemsListener {
+public class HomeActivity extends AppCompatActivity implements MainfeedListAdapter.OnLoadMoreItemsListener{
 
     @Override
     public void onLoadMoreItems() {
@@ -43,6 +44,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
             fragment.displayMorePhotos();
         }
     }
+
     private static final String TAG = "HomeActivity";
     private static final int ACTIVITY_NUM = 0;
     private static final int HOME_FRAGMENT = 1;
@@ -71,6 +73,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         mRelativeLayout = findViewById(R.id.relLayoutParent);
 
         setupFirebaseAuth();
+
         initImageLoader();
         setupBottomNavigationView();
         setupViewPager();

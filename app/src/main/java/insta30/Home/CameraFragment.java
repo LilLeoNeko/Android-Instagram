@@ -1,4 +1,4 @@
-package insta30.Home;
+package tabian.com.instagramclone2.Home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import g30.gsm.com.instagram.R;
+import tabian.com.instagramclone2.R;
 
 /**
  * Created by User on 5/28/2017.

@@ -1,4 +1,4 @@
-package insta30.materialcamera.util;
+package tabian.com.instagramclone2.materialcamera.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import insta30.materialcamera.internal.BaseCaptureActivity;
+import tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity;
 
 /** @author Aidan Follestad (afollestad) */
 public class CameraUtil {

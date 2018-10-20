@@ -1,4 +1,4 @@
-package insta30.easyvideoplayer;
+package tabian.com.instagramclone2.easyvideoplayer;
 
 /** @author Aidan Follestad (afollestad) */
 public interface EasyVideoProgressCallback {

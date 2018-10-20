@@ -6,7 +6,7 @@
  * Copyright Nikolai Kudashov, 2013-2014.
  */
 
-package insta30.videocompressor.video;
+package tabian.com.instagramclone2.videocompressor.video;
 
 import android.annotation.TargetApi;
 import android.media.MediaCodec;
@@ -131,7 +131,7 @@ public class MP4Builder {
         return flush;
     }
 
-    public int addTrack(MediaFormat mediaFormat, boolean isAudio) {
+    public int addTrack(MediaFormat mediaFormat, boolean isAudio) throws Exception {
         return currentMp4Movie.addTrack(mediaFormat, isAudio);
     }
 
