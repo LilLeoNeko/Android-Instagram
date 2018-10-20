@@ -10,7 +10,7 @@ public class Following {
     private String follow_id;
     private String follow_time;
 
-    public Following(String user_id, String user_name, String follow_id, String follow_name,String follow_time) {
+    public Following(String user_id, String user_name, String follow_id, String follow_time) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.follow_id = follow_id;

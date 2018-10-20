@@ -94,9 +94,7 @@ public class FollowFeedFragment extends Fragment implements OnUpdateListener {
             final int count = i;
             Query query = FirebaseDatabase.getInstance().getReference()
                     .child(getActivity().getString(R.string.dbname_following))
-                    .child(followingUsers.get(i))
-                    .orderByChild(getString(R.string.field_follow_id))
-                    .equalTo(followingUsers.get(i));
+                    .child(followingUsers.get(i));
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -126,6 +124,10 @@ public class FollowFeedFragment extends Fragment implements OnUpdateListener {
         if(followingUsers != null){
             followingUsers.clear();
         }
+        if(followings != null){
+            followings.clear();
+        }
+        followings = new ArrayList<>();
         followingUsers = new ArrayList<>();
     }
     private void displayFollowEvent(){
