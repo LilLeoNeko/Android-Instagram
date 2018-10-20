@@ -1,9 +1,8 @@
-package tabian.com.instagramclone2.Share;
+package insta30.Share;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.health.PackageHealthStats;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
@@ -15,10 +14,10 @@ import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.Utils.BottomNavigationViewHelper;
-import tabian.com.instagramclone2.Utils.Permissions;
-import tabian.com.instagramclone2.Utils.SectionsPagerAdapter;
+import g30.gsm.com.instagram.R;
+import insta30.Utils.BottomNavigationViewHelper;
+import insta30.Utils.Permissions;
+import insta30.Utils.SectionsPagerAdapter;
 
 /**
  * Created by User on 5/28/2017.

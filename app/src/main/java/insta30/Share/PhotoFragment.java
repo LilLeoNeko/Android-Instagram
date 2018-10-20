@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.Share;
+package insta30.Share;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,10 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import tabian.com.instagramclone2.Profile.AccountSettingsActivity;
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.Utils.Permissions;
+import insta30.Profile.AccountSettingsActivity;
+import g30.gsm.com.instagram.R;
+import insta30.Utils.Permissions;
 
 /**
  * Created by User on 5/28/2017.
@@ -83,16 +82,16 @@ public class PhotoFragment extends Fragment {
                     Log.d(TAG, "onActivityResult: NullPointerException: " + e.getMessage());
                 }
             }else{
-               try{
-                   Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
-                   Intent intent = new Intent(getActivity(), AccountSettingsActivity.class);
-                   intent.putExtra(getString(R.string.selected_bitmap), bitmap);
-                   intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
-                   startActivity(intent);
-                   getActivity().finish();
-               }catch (NullPointerException e){
-                   Log.d(TAG, "onActivityResult: NullPointerException: " + e.getMessage());
-               }
+                try{
+                    Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
+                    Intent intent = new Intent(getActivity(), AccountSettingsActivity.class);
+                    intent.putExtra(getString(R.string.selected_bitmap), bitmap);
+                    intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
+                    startActivity(intent);
+                    getActivity().finish();
+                }catch (NullPointerException e){
+                    Log.d(TAG, "onActivityResult: NullPointerException: " + e.getMessage());
+                }
             }
 
         }
