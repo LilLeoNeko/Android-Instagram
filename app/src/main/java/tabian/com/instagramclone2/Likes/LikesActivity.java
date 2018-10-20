@@ -13,9 +13,6 @@ import android.widget.ListView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-import tabian.com.instagramclone2.Home.CameraFragment;
-import tabian.com.instagramclone2.Home.HomeFragment;
-import tabian.com.instagramclone2.Home.MessagesFragment;
 import tabian.com.instagramclone2.R;
 import tabian.com.instagramclone2.Utils.BottomNavigationViewHelper;
 import tabian.com.instagramclone2.Utils.SectionsPagerAdapter;
