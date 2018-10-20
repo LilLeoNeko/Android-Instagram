@@ -1,8 +1,7 @@
-package tabian.com.instagramclone2.Utils;
+package insta30.Utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,8 +24,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import java.lang.reflect.Array;
-import java.security.PolicySpi;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,33 +33,29 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import tabian.com.instagramclone2.Home.HomeActivity;
-import tabian.com.instagramclone2.Profile.ProfileActivity;
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.models.Comment;
-import tabian.com.instagramclone2.models.Like;
-import tabian.com.instagramclone2.models.Photo;
-import tabian.com.instagramclone2.models.User;
-import tabian.com.instagramclone2.models.UserAccountSettings;
+import insta30.Home.HomeActivity;
+import insta30.Profile.ProfileActivity;
+import g30.gsm.com.instagram.R;
+import insta30.models.Comment;
+import insta30.models.Like;
+import insta30.models.Photo;
+import insta30.models.User;
+import insta30.models.UserAccountSettings;
 
 /**
  * Created by User on 9/22/2017.
  */
 public class MainfeedListAdapter extends ArrayAdapter<Photo> {
-
     public interface OnLoadMoreItemsListener{
         void onLoadMoreItems();
     }
     OnLoadMoreItemsListener mOnLoadMoreItemsListener;
-
     private static final String TAG = "MainFeedListAdapter";
-
     private LayoutInflater mInflater;
     private int mLayoutResource;
     private Context mContext;
     private DatabaseReference mReference;
     private String currentUsername = "";
-
     public MainfeedListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Photo> objects) {
         super(context, resource, objects);
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -75,14 +68,12 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
 //        }
 
     }
-
     static class ViewHolder{
         CircleImageView mprofileImage;
         String likesString;
         TextView username, timeDetla, caption, likes, comments;
         SquareImageView image;
         ImageView heartRed, heartWhite, comment;
-
         UserAccountSettings settings = new UserAccountSettings();
         User user  = new User();
         StringBuilder users;
@@ -96,13 +87,10 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
         final ViewHolder holder;
-
         if(convertView == null){
             convertView = mInflater.inflate(mLayoutResource, parent, false);
             holder = new ViewHolder();
-
             holder.username = convertView.findViewById(R.id.username);
             holder.image = convertView.findViewById(R.id.post_image);
             holder.heartRed = convertView.findViewById(R.id.image_heart_red);
@@ -113,24 +101,19 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             holder.caption = convertView.findViewById(R.id.image_caption);
             holder.timeDetla = convertView.findViewById(R.id.image_time_posted);
             holder.mprofileImage = convertView.findViewById(R.id.profile_photo);
-
             convertView.setTag(holder);
         }
         else{
             holder = (ViewHolder) convertView.getTag();
         }
-
         holder.photo = getItem(position);
         holder.detector = new GestureDetector(mContext, new GestureListener(holder));
         holder.users = new StringBuilder();
         holder.heart = new Heart(holder.heartWhite, holder.heartRed);
-
         //get the current users username (need for checking likes string)
         getCurrentUsername();
-
         //get likes string
         getLikesString(holder);
-
         //set the caption
         holder.caption.setText(getItem(position).getCaption());
 
@@ -195,7 +178,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                     });
 
                     imageLoader.displayImage(singleSnapshot.getValue(UserAccountSettings.class).getProfile_photo(),
-                           holder.mprofileImage);
+                            holder.mprofileImage);
                     holder.mprofileImage.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -364,7 +347,6 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         String newLikeID = mReference.push().getKey();
         Like like = new Like();
         like.setUser_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        like.setLike_time(getTimestamp());
 
         mReference.child(mContext.getString(R.string.dbname_photos))
                 .child(holder.photo.getPhoto_id())
@@ -381,12 +363,6 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
 
         holder.heart.toggleLike();
         getLikesString(holder);
-    }
-
-    private String getTimestamp(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
-        sdf.setTimeZone(TimeZone.getTimeZone("Australia/Victoria"));
-        return sdf.format(new Date());
     }
 
     private void getCurrentUsername(){
