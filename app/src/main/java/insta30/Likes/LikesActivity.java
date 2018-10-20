@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.Likes;
+package insta30.Likes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,11 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.Utils.BottomNavigationViewHelper;
+import g30.gsm.com.instagram.R;
+import insta30.Utils.BottomNavigationViewHelper;
 
 /**
  * Created by User on 5/28/2017.
