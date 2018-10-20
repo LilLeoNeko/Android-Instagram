@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.opengl;
+package insta30.opengl;
 
 
 import android.app.Activity;
@@ -11,9 +11,9 @@ import android.widget.Toast;
 
 import java.io.File;
 
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.Utils.FilePaths;
-import tabian.com.instagramclone2.materialcamera.MaterialCamera;
+import g30.gsm.com.instagram.R;
+import insta30.Utils.FilePaths;
+import insta30.materialcamera.MaterialCamera;
 
 
 /**
