@@ -1,11 +1,10 @@
-package tabian.com.instagramclone2.Profile;
+package insta30.Profile;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,17 +28,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import de.hdodenhof.circleimageview.CircleImageView;
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.Share.ShareActivity;
-import tabian.com.instagramclone2.Utils.FirebaseMethods;
-import tabian.com.instagramclone2.Utils.UniversalImageLoader;
-import tabian.com.instagramclone2.dialogs.ConfirmPasswordDialog;
-import tabian.com.instagramclone2.models.User;
-import tabian.com.instagramclone2.models.UserAccountSettings;
-import tabian.com.instagramclone2.models.UserSettings;
+import g30.gsm.com.instagram.R;
+import insta30.Share.ShareActivity;
+import insta30.Utils.FirebaseMethods;
+import insta30.Utils.UniversalImageLoader;
+import insta30.dialogs.ConfirmPasswordDialog;
+import insta30.models.User;
+import insta30.models.UserAccountSettings;
+import insta30.models.UserSettings;
 
 /**
  * Created by User on 6/4/2017.
@@ -99,11 +96,6 @@ public class EditProfileFragment extends Fragment implements
                                     }
                                 }
                             });
-
-
-
-
-
                         }else{
                             Log.d(TAG, "onComplete: re-authentication failed.");
                         }
@@ -122,16 +114,13 @@ public class EditProfileFragment extends Fragment implements
     private FirebaseMethods mFirebaseMethods;
     private String userID;
 
-
     //EditProfile Fragment widgets
     private EditText mDisplayName, mUsername, mWebsite, mDescription, mEmail, mPhoneNumber;
     private TextView mChangeProfilePhoto;
     private CircleImageView mProfilePhoto;
 
-
     //vars
     private UserSettings mUserSettings;
-
 
     @Nullable
     @Override
@@ -148,10 +137,11 @@ public class EditProfileFragment extends Fragment implements
         mFirebaseMethods = new FirebaseMethods(getActivity());
 
 
-        //setProfileImage();
+      //  setProfileImage();
         setupFirebaseAuth();
 
         //back arrow for navigating back to "ProfileActivity"
+
         ImageView backArrow = view.findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,13 +213,11 @@ public class EditProfileFragment extends Fragment implements
             //update description
             mFirebaseMethods.updateUserAccountSettings(null, null, description, 0);
         }
-        if(!mUserSettings.getSettings().getProfile_photo().equals(phoneNumber)){
+        if(!mUserSettings.getSettings().getProfile_photo().equals(mProfilePhoto)){
             //update phoneNumber
             mFirebaseMethods.updateUserAccountSettings(null, null, null, phoneNumber);
         }
     }
-
-
 
     /**
      * Check is @param username already exists in teh database
@@ -314,8 +302,6 @@ public class EditProfileFragment extends Fragment implements
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-
-
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
