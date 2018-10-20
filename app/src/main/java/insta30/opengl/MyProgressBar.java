@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.opengl;
+package insta30.opengl;
 
 import android.content.Context;
 import android.util.AttributeSet;
