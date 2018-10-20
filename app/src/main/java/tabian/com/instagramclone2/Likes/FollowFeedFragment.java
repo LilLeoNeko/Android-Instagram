@@ -30,7 +30,7 @@ import tabian.com.instagramclone2.Utils.FollowListAdaptor;
 import tabian.com.instagramclone2.models.Following;
 
 public class FollowFeedFragment extends Fragment implements OnUpdateListener {
-    private static final String TAG = "LIKES FEED FRAGMENT";
+    private static final String TAG = "FOLLOW FEED FRAGMENT";
     private ArrayList<Following> followings;
     private ArrayList<String>followingUsers;
     private FollowListAdaptor listAdaptor;
@@ -38,7 +38,6 @@ public class FollowFeedFragment extends Fragment implements OnUpdateListener {
 
     @Override
     public void onUpdate() {
-        Log.d(TAG, "ElasticListView: updating list view...");
         getFollowingUser();
     }
 
@@ -101,9 +100,13 @@ public class FollowFeedFragment extends Fragment implements OnUpdateListener {
                     for(DataSnapshot singleSnapshot :  dataSnapshot.getChildren()) {
                         Following newFollow = new Following();
                         Map<String, Object> objectMap = (HashMap<String, Object>) singleSnapshot.getValue();
+                        //if (objectMap.get(getString(R.string.field_user_name)).toString() != null)
                         newFollow.setUser_name(objectMap.get(getString(R.string.field_user_name)).toString());
+                        //if (objectMap.get(getString(R.string.field_user_id)).toString() != null)
                         newFollow.setUser_id(objectMap.get(getString(R.string.field_user_id)).toString());
+                        //if (objectMap.get(getString(R.string.field_follow_id)).toString()!= null)
                         newFollow.setFollow_id(objectMap.get(getString(R.string.field_follow_id)).toString());
+                        //if (objectMap.get(getString(R.string.field_follow_time)).toString()!=null)
                         newFollow.setFollow_time(objectMap.get(getString(R.string.field_follow_time)).toString());
                         followings.add(newFollow);
                     }

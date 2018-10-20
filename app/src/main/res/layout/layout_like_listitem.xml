@@ -69,13 +69,28 @@
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toEndOf="@+id/post_text"
+
+                android:text="10H"
+                android:textColor="@color/darkergrey"
+                android:textSize="16sp" />
+
             <tabian.com.instagramclone2.Utils.SquareImageView
                 android:id="@+id/liked_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_margin="12dp" />
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                />
 
         </RelativeLayout>
 
