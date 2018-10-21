@@ -28,11 +28,11 @@
                   android:launchMode="singleInstance"/>
         <activity android:name="group30.instagram.Profile.ProfileActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name="group30.instagram.Share.ShareActivity"
+        <activity android:name="group30.instagram.Post.ShareActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name="group30.instagram.Share.NextActivity"
+        <activity android:name="group30.instagram.Post.NextActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name="group30.instagram.Share.MainActivity"
+        <activity android:name="group30.instagram.Post.MainActivity"
             android:launchMode="singleInstance"/>
         <activity android:name="group30.instagram.Login.LoginActivity"
                   android:launchMode="singleInstance">

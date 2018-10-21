@@ -1,4 +1,4 @@
-package group30.instagram.Share;
+package group30.instagram.Post;
 
 
 import android.content.Intent;

@@ -15,7 +15,7 @@ import group30.instagram.Likes.LikesActivity;
 import group30.instagram.Profile.ProfileActivity;
 import group30.com.instagramclone2.R;
 import group30.instagram.Search.SearchActivity;
-import group30.instagram.Share.ShareActivity;
+import group30.instagram.Post.ShareActivity;
 
 
 
