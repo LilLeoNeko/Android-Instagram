@@ -3,6 +3,7 @@ package tabian.com.instagramclone2.Share;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -22,6 +23,8 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.ArrayList;
 
@@ -94,6 +97,33 @@ public class GalleryFragment extends Fragment {
                     startActivity(intent);
                     getActivity().finish();
                 }
+
+            }
+        });
+
+        TextView cropScreen = view.findViewById(R.id.tvCrop);
+        cropScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: navigating to the cropping screen.");
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.putExtra(getString(R.string.selected_image), mSelectedImage);
+                startActivity(intent);
+                // for fragment (DO NOT use `getActivity()`)
+                //Fragment f = getActivity().getFragmentManager().findFragmentById();
+            //CropImage.activity().start(getContext(),this);
+
+              /*  @Override
+                public void onActivityResult(int requestCode, int resultCode, Intent data) {
+                    if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+                        CropImage.ActivityResult result = CropImage.getActivityResult(data);
+                        if (resultCode == RESULT_OK) {
+                            Uri resultUri = result.getUri();
+                        } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                            Exception error = result.getError();
+                        }
+                    }
+                }*/
 
             }
         });

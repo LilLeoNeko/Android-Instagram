@@ -50,7 +50,16 @@
                     android:id="@+id/tvNext"
                     />
 
-
+                <TextView
+                    android:id="@+id/tvCrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Edit"
+                    android:layout_toStartOf="@+id/tvNext"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@color/link_blue"
+                    android:textSize="20sp" />
 
 
             </RelativeLayout>
