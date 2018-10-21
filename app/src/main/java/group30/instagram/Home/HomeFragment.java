@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 
 import com.eschao.android.widget.elasticlistview.ElasticListView;
+import com.eschao.android.widget.elasticlistview.LoadFooter;
 import com.eschao.android.widget.elasticlistview.OnLoadListener;
 import com.eschao.android.widget.elasticlistview.OnUpdateListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,12 +77,18 @@ public class HomeFragment extends Fragment implements OnUpdateListener, OnLoadLi
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 //        mListView = (ListView) view.findViewById(R.id.listView);
         mListView = view.findViewById(R.id.listViewhome);
-
+        initListViewRefresh();
         getFollowing();
-
         return view;
     }
-
+    private void initListViewRefresh(){
+        mListView.setHorizontalFadingEdgeEnabled(true);
+        mListView.setAdapter(adapter);
+        mListView.enableLoadFooter(true)
+                .getLoadFooter().setLoadAction(LoadFooter.LoadAction.RELEASE_TO_LOAD);
+        mListView.setOnUpdateListener(this)
+                .setOnLoadListener(this);
+    }
     /**
      //     * Retrieve all user id's that current user is following
      //     */
