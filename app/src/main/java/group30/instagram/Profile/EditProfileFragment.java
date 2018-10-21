@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import group30.com.instagramclone2.R;
-import group30.instagram.Share.ShareActivity;
+import group30.instagram.Post.ShareActivity;
 import group30.instagram.Utils.FirebaseMethods;
 import group30.instagram.Utils.UniversalImageLoader;
 import group30.instagram.dialogs.ConfirmPasswordDialog;
