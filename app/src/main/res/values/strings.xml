@@ -87,6 +87,7 @@
     <string name="photo">PHOTO</string>
     <string name="string_open_camera">Open Camera</string>
     <string name="string_next">Next</string>
+    <string name="string_crop">Crop</string>
     <string name="string_share">Share</string>
 
     <!-- Dialog Names -->
@@ -130,4 +131,22 @@
     <string name="mcam_video_capture_unsupported">Your device does not support video capture.</string>
     <string name="mcam_no_audio_access">You haven\'t given access to your microphone; no audio will be recorded.</string>
     <string name="mcam_file_size_limit_reached">You\'ve reached the maximum file size!</string>
+
+    <!--filter    -->
+        <string name="clarendon">Clarendon</string>
+        <string name="oldman">OldMan</string>
+        <string name="haan">Haan</string>
+        <string name="april">April</string>
+        <string name="mars">Mars</string>
+        <string name="rise">Rise</string>
+        <string name="audrey">Audrey</string>
+        <string name="metropolis">Metropolis</string>
+        <string name="cruz">Cruz</string>
+        <string name="adele">Adele</string>
+        <string name="amazon">Amazon</string>
+        <string name="starlit">Starlit</string>
+        <string name="bluemess">BlueMess</string>
+        <string name="struck">Struck</string>
+        <string name="whisper">Whisper</string>
+        <string name="lime">Lime</string>
 </resources>
