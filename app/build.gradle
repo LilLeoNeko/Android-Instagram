@@ -85,15 +85,11 @@ dependencies {
     //   implementation 'com.intellij:annotations:+@jar'
 
     // For @Nullable/@NonNull
-<<<<<<< HEAD
-
     //  implementation 'com.android.support:support-annotations:+'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
-=======
   //  implementation 'com.android.support:support-annotations:+'
     //Recycleview for activity Feed
     implementation 'com.android.support:recyclerview-v7:27.1.1'
->>>>>>> 2c697e33c965a03aa8e4030f120b8d045ca0a2ec
 }
 
 //Firebase
