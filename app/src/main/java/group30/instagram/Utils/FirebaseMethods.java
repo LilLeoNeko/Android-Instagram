@@ -40,7 +40,6 @@ import group30.instagram.Home.HomeFragment;
 import group30.instagram.Profile.AccountSettingsActivity;
 import group30.com.instagramclone2.R;
 import group30.instagram.models.Photo;
-import group30.instagram.models.Story;
 import group30.instagram.models.User;
 import group30.instagram.models.UserAccountSettings;
 import group30.instagram.models.UserSettings;

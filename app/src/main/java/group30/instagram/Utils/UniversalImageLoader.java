@@ -21,9 +21,6 @@ import group30.com.instagramclone2.R;
 public class UniversalImageLoader {
 
     private static final int defaultImage = R.drawable.ic_camera;
-    private static final int testtImage1 = R.drawable.android_construction;
-    private static final int testtImage2 = R.drawable.ic_add_to_story;
-    private static final int testtImage3 = R.drawable.ic_arrow;
     private Context mContext;
 
     public UniversalImageLoader(Context context) {
@@ -32,12 +29,9 @@ public class UniversalImageLoader {
 
     public ImageLoaderConfiguration getConfig(){
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                //.showImageOnLoading(defaultImage)
-                //.showImageForEmptyUri(defaultImage)
-                //.showImageOnFail(defaultImage)
-                .showImageOnLoading(testtImage1)
-                .showImageForEmptyUri(testtImage2)
-                .showImageOnFail(testtImage3)
+                .showImageOnLoading(defaultImage)
+                .showImageForEmptyUri(defaultImage)
+                .showImageOnFail(defaultImage)
                 .considerExifParams(true)
                 .cacheOnDisk(true).cacheInMemory(true)
                 .cacheOnDisk(true).resetViewBeforeLoading(true)
