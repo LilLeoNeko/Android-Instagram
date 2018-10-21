@@ -198,10 +198,15 @@ public class ViewProfileFragment extends Fragment {
     }
     private void addNewFollowing(){
         Following following = new Following();
-        // Set following user id
+        // Set user id of the one you follow
         following.setUser_id(mUser.getUser_id());
+        // Set user name of the one you follow
+        following.setUser_name(mUser.getUsername());
+        // Set your user id
+        following.setFollow_id(FirebaseAuth.getInstance().getCurrentUser().getUid());
         // Set when you start following the user
         following.setFollow_time(getTimestamp());
+
 
         FirebaseDatabase.getInstance().getReference()
                 //User A has a new following user B

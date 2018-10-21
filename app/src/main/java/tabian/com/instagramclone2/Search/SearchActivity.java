@@ -84,7 +84,7 @@ public class SearchActivity extends AppCompatActivity{
             @Override
             public void afterTextChanged(Editable s) {
 
-                String text = mSearchParam.getText().toString().toLowerCase(Locale.getDefault());
+                String text = mSearchParam.getText().toString();
                 searchForMatch(text);
             }
         });
@@ -108,8 +108,8 @@ public class SearchActivity extends AppCompatActivity{
 
                         mUserList.add(singleSnapshot.getValue(User.class));
                         //update the users list view
-                        updateUsersList();
                     }
+                    updateUsersList();
                 }
 
                 @Override

@@ -34,8 +34,8 @@
                 android:scaleType="centerCrop"/>
 
             <ProgressBar
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:id="@+id/progressBar"
                 android:layout_centerInParent="true"/>
 

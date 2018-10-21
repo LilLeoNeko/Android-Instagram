@@ -73,7 +73,6 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         mRelativeLayout = findViewById(R.id.relLayoutParent);
 
         setupFirebaseAuth();
-
         initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
@@ -170,17 +169,13 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
      */
     private void setupViewPager(){
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new CameraFragment()); //index 0
-        adapter.addFragment(new HomeFragment()); //index 1
-        adapter.addFragment(new MessagesFragment()); //index 2
+        adapter.addFragment(new HomeFragment());
         mViewPager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram_black);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_instagram_black);
     }
 
     /**

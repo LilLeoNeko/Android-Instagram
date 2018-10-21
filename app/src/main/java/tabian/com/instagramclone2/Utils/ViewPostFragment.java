@@ -348,7 +348,6 @@ public class ViewPostFragment extends Fragment {
                                     .removeValue();
                             myRef.child(getString(R.string.dbname_user_like_photos))
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .child(getString(R.string.field_likes))
                                     .child(keyID)
                                     .removeValue();
                             mHeart.toggleLike();
@@ -410,7 +409,6 @@ public class ViewPostFragment extends Fragment {
         /**
          * Add current User Liked Photo to firebase
          **/
-
         myRef.child(getString(R.string.dbname_user_like_photos))
                 .child(like.getUser_id())
                 .child(newLikeID)
@@ -531,8 +529,8 @@ public class ViewPostFragment extends Fragment {
 
         String difference = "";
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.CANADA);
-        sdf.setTimeZone(TimeZone.getTimeZone("Canada/Pacific"));//google 'android list of timezones'
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
+        sdf.setTimeZone(TimeZone.getTimeZone("Australia/Victoria"));//google 'android list of timezones'
         Date today = c.getTime();
         sdf.format(today);
         Date timestamp;
