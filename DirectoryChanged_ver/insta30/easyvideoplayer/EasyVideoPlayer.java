@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.easyvideoplayer;
+package group30.com.instagramclone2.easyvideoplayer;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -48,7 +48,7 @@ import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import tabian.com.instagramclone2.R;
+import group30.com.instagramclone2.R;
 
 
 /** @author Aidan Follestad (afollestad) */

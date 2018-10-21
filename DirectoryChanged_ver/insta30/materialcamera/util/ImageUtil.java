@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera.util;
+package group30.com.instagramclone2.materialcamera.util;
 
 
 
@@ -16,10 +16,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.zip.Deflater;
 
-import tabian.com.instagramclone2.materialcamera.ICallback;
+import group30.com.instagramclone2.materialcamera.ICallback;
 
-import static tabian.com.instagramclone2.materialcamera.util.Degrees.DEGREES_270;
-import static tabian.com.instagramclone2.materialcamera.util.Degrees.DEGREES_90;
+import static group30.com.instagramclone2.materialcamera.util.Degrees.DEGREES_270;
+import static group30.com.instagramclone2.materialcamera.util.Degrees.DEGREES_90;
 
 /** Created by tomiurankar on 06/03/16. */
 public class ImageUtil {

@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.models;
+package group30.com.instagramclone2.models;
 
 import android.os.Parcel;
 

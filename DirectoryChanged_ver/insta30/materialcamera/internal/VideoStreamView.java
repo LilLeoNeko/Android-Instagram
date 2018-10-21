@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera.internal;
+package group30.com.instagramclone2.materialcamera.internal;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -25,7 +25,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import tabian.com.instagramclone2.R;
+import group30.com.instagramclone2.R;
 
 /** @author Aidan Follestad (afollestad) */
 public class VideoStreamView extends SurfaceView

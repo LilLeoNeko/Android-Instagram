@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.videocompressor;
+package group30.com.instagramclone2.videocompressor;
 
 /*
 * By Jorge E. Hernandez (@lalongooo) 2015

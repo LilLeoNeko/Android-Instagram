@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera;
+package group30.com.instagramclone2.materialcamera;
 
 public interface ICallback {
   /**

@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.dialogs;
+package group30.com.instagramclone2.dialogs;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import tabian.com.instagramclone2.R;
+import group30.com.instagramclone2.R;
 
 /**
  * Created by User on 7/10/2017.

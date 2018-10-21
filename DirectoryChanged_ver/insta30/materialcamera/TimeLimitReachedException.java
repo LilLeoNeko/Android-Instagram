@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera;
+package group30.com.instagramclone2.materialcamera;
 
 /** @author Aidan Follestad (afollestad) */
 public class TimeLimitReachedException extends Exception {

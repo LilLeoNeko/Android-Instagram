@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera;
+package group30.com.instagramclone2.materialcamera;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,9 +23,9 @@ import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.materialcamera.internal.CameraIntentKey;
-import tabian.com.instagramclone2.materialcamera.util.CameraUtil;
+import group30.com.instagramclone2.R;
+import group30.com.instagramclone2.materialcamera.internal.CameraIntentKey;
+import group30.com.instagramclone2.materialcamera.util.CameraUtil;
 
 /** @author Aidan Follestad (afollestad) */
 @SuppressWarnings("WeakerAccess")

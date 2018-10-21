@@ -81,7 +81,7 @@
                 android:textColor="@color/darkergrey"
                 android:textSize="16sp" />
 
-            <tabian.com.instagramclone2.Utils.SquareImageView
+            <group30.instagram.Utils.SquareImageView
                 android:id="@+id/liked_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"

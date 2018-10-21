@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="tabian.com.instagramclone2">
+          package="group30.com.instagramclone2">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -20,21 +20,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Home.HomeActivity"
+            android:name="group30.instagram.Home.HomeActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleInstance">
         </activity>
-        <activity android:name=".Likes.LikesActivity"
+        <activity android:name="group30.instagram.Likes.LikesActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name=".Profile.ProfileActivity"
+        <activity android:name="group30.instagram.Profile.ProfileActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name=".Share.ShareActivity"
+        <activity android:name="group30.instagram.Share.ShareActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name=".Share.NextActivity"
+        <activity android:name="group30.instagram.Share.NextActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name=".Share.MainActivity"
+        <activity android:name="group30.instagram.Share.MainActivity"
             android:launchMode="singleInstance"/>
-        <activity android:name=".Login.LoginActivity"
+        <activity android:name="group30.instagram.Login.LoginActivity"
                   android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -42,24 +42,24 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Profile.AccountSettingsActivity"
+        <activity android:name="group30.instagram.Profile.AccountSettingsActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name=".Login.RegisterActivity"
+        <activity android:name="group30.instagram.Login.RegisterActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name=".opengl.OpenGLES10Activity"
+        <activity android:name="group30.instagram.opengl.OpenGLES10Activity"
                   android:launchMode="singleInstance"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".opengl.NewStoryActivity"
+        <activity android:name="group30.instagram.opengl.NewStoryActivity"
                   android:launchMode="singleInstance"
                   android:screenOrientation="portrait"/>
         <activity
-            android:name=".Search.SearchActivity"
+            android:name="group30.instagram.Search.SearchActivity"
             android:windowSoftInputMode="adjustNothing"
             android:launchMode="singleInstance">
 
         </activity>
-        <activity android:name=".materialcamera.CaptureActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".materialcamera.CaptureActivity2" android:screenOrientation="portrait"/>
+        <activity android:name="group30.instagram.materialcamera.CaptureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="group30.instagram.materialcamera.CaptureActivity2" android:screenOrientation="portrait"/>
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat"/>
     </application>

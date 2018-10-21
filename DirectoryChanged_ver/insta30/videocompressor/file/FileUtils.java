@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.videocompressor.file;
+package group30.com.instagramclone2.videocompressor.file;
 
 /*
 * By Jorge E. Hernandez (@lalongooo) 2015
@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import tabian.com.instagramclone2.videocompressor.Config;
+import group30.com.instagramclone2.videocompressor.Config;
 
 
 public class FileUtils {

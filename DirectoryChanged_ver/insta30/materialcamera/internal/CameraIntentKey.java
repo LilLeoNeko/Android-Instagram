@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera.internal;
+package group30.com.instagramclone2.materialcamera.internal;
 
 /** @author Aidan Follestad (afollestad) */
 public class CameraIntentKey {

@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera.util;
+package group30.com.instagramclone2.materialcamera.util;
 
 import android.os.Build;
 

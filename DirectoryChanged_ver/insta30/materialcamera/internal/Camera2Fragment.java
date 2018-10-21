@@ -1,4 +1,4 @@
-package tabian.com.instagramclone2.materialcamera.internal;
+package group30.com.instagramclone2.materialcamera.internal;
 
 
 import android.Manifest;
@@ -60,16 +60,16 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-import tabian.com.instagramclone2.R;
-import tabian.com.instagramclone2.materialcamera.util.CameraUtil;
-import tabian.com.instagramclone2.materialcamera.util.Degrees;
+import group30.com.instagramclone2.R;
+import group30.com.instagramclone2.materialcamera.util.CameraUtil;
+import group30.com.instagramclone2.materialcamera.util.Degrees;
 
-import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_BACK;
-import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_FRONT;
-import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_UNKNOWN;
-import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_ALWAYS_ON;
-import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_AUTO;
-import static tabian.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_OFF;
+import static group30.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_BACK;
+import static group30.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_FRONT;
+import static group30.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.CAMERA_POSITION_UNKNOWN;
+import static group30.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_ALWAYS_ON;
+import static group30.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_AUTO;
+import static group30.com.instagramclone2.materialcamera.internal.BaseCaptureActivity.FLASH_MODE_OFF;
 
 /** @author Aidan Follestad (afollestad) */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
