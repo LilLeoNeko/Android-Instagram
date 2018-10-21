@@ -3,6 +3,7 @@ package group30.instagram.Search;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +27,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import group30.instagram.Profile.ProfileActivity;
 import group30.com.instagramclone2.R;
@@ -46,6 +50,8 @@ public class SearchActivity extends AppCompatActivity{
 
     //vars
     private List<User> mUserList;
+
+
     private UserListAdapter mAdapter;
 
     @Override
@@ -59,6 +65,7 @@ public class SearchActivity extends AppCompatActivity{
         hideSoftKeyboard();
         setupBottomNavigationView();
         initTextListener();
+
     }
 
     private void initTextListener(){
@@ -74,7 +81,6 @@ public class SearchActivity extends AppCompatActivity{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
@@ -86,12 +92,29 @@ public class SearchActivity extends AppCompatActivity{
         });
     }
 
+
     private void searchForMatch(String keyword){
         Log.d(TAG, "searchForMatch: searching for a match: " + keyword);
         mUserList.clear();
         //update the users list view
         if(keyword.length() ==0){
-
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+            Query query = reference.child(getString(R.string.dbname_users))
+                    .orderByChild(getString(R.string.field_username));
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot singleSnapshot :  dataSnapshot.getChildren()){
+                        Log.d(TAG, "onDataChange: found user:" + singleSnapshot.getValue(User.class).toString());
+                        mUserList.add(singleSnapshot.getValue(User.class));
+                        //update the users list view
+                    }
+                    updateUsersList();
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
         }else{
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
             Query query = reference.child(getString(R.string.dbname_users))
