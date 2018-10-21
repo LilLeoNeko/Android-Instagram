@@ -46,20 +46,14 @@
                   android:launchMode="singleInstance"/>
         <activity android:name="group30.instagram.Login.RegisterActivity"
                   android:launchMode="singleInstance"/>
-        <activity android:name="group30.instagram.opengl.OpenGLES10Activity"
-                  android:launchMode="singleInstance"
-                  android:screenOrientation="portrait"/>
-        <activity android:name="group30.instagram.opengl.NewStoryActivity"
-                  android:launchMode="singleInstance"
-                  android:screenOrientation="portrait"/>
+
+
         <activity
             android:name="group30.instagram.Search.SearchActivity"
             android:windowSoftInputMode="adjustNothing"
             android:launchMode="singleInstance">
 
         </activity>
-        <activity android:name="group30.instagram.materialcamera.CaptureActivity" android:screenOrientation="portrait"/>
-        <activity android:name="group30.instagram.materialcamera.CaptureActivity2" android:screenOrientation="portrait"/>
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat"/>
     </application>

@@ -30,8 +30,6 @@ import group30.instagram.Utils.SectionsPagerAdapter;
 import group30.instagram.Utils.UniversalImageLoader;
 import group30.instagram.Utils.ViewCommentsFragment;
 import group30.instagram.models.Photo;
-import group30.instagram.opengl.AddToStoryDialog;
-import group30.instagram.opengl.NewStoryActivity;
 
 public class HomeActivity extends AppCompatActivity implements MainfeedListAdapter.OnLoadMoreItemsListener {
 
@@ -79,16 +77,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
 
     }
 
-    public void openNewStoryActivity(){
-        Intent intent = new Intent(this, NewStoryActivity.class);
-        startActivityForResult(intent, REQUEST_ADD_NEW_STORY);
-    }
 
-    public void showAddToStoryDialog(){
-        Log.d(TAG, "showAddToStoryDialog: showing add to story dialog.");
-        AddToStoryDialog dialog = new AddToStoryDialog();
-        dialog.show(getFragmentManager(), getString(R.string.dialog_add_to_story));
-    }
 
 
     public void onCommentThreadSelected(Photo photo, String callingActivity){
@@ -125,36 +114,6 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         super.onBackPressed();
         if(mFrameLayout.getVisibility() == View.VISIBLE){
             showLayout();
-        }
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult: incoming result.");
-        // Received recording or error from MaterialCamera
-
-        if (requestCode == REQUEST_ADD_NEW_STORY) {
-            Log.d(TAG, "onActivityResult: incoming new story.");
-            if (resultCode == RESULT_ADD_NEW_STORY) {
-                Log.d(TAG, "onActivityResult: got the new story.");
-                Log.d(TAG, "onActivityResult: data type: " + data.getType());
-
-                final HomeFragment fragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager_container + ":" + 1);
-                if (fragment != null) {
-
-                    FirebaseMethods firebaseMethods = new FirebaseMethods(this);
-                    firebaseMethods.uploadNewStory(data, fragment);
-
-                }
-                else{
-                    Log.d(TAG, "onActivityResult: could not communicate with home fragment.");
-                }
-
-
-
-            }
         }
     }
 

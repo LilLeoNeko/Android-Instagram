@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">bb Instagram</string>
+    <string name="app_name">FakeInstagram</string>
 
     <!-- fragment names -->
     <string name="edit_profile_fragment">Edit Profile</string>

@@ -56,7 +56,7 @@ public class PhotoFragment extends Fragment {
     }
 
     private boolean isRootTask(){
-        return ((ShareActivity) getActivity()).getTask() == 0;
+        return true;//((ShareActivity) getActivity()).getTask() == 0;
     }
 
     @Override
